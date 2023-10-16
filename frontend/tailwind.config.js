@@ -9,10 +9,10 @@ export default {
       'sm': '416px',
       // => @media (min-width: 400px) { ... }
 
-      'md': '960px',
+      'md': '760px',
       // => @media (min-width: 960px) { ... }
 
-      'lg': '1440px',
+      'lg': '1600px',
       // => @media (min-width: 1440px) { ... }
     },
     fontSize: {
@@ -24,7 +24,9 @@ export default {
       '4xl': '2.441rem',
       '5xl': '3.052rem',
     },
-    extend: {},
+    extend: {
+    
+    },
   },
   plugins: [],
 }
