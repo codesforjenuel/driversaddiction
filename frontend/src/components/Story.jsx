@@ -1,4 +1,7 @@
 import React from 'react'
+import { FaInstagram } from 'react-icons/fa';
+import { FaYoutube } from 'react-icons/fa';
+import { FaGlobe } from 'react-icons/fa';
 
 const Story = () => {
   return (
@@ -15,6 +18,17 @@ Another defining element of Doug's content is his proprietary "Doug Score" ratin
 Beyond his traditional car reviews, Doug DeMuro has also ventured into writing books and articles. His writing style, much like his video content, is characterized by humor and personal anecdotes, creating a unique connection with his readers. These publications offer a glimpse into his personal experiences with cars and the automotive industry, providing a more intimate and relatable perspective on the world of automobiles.
 
 Doug DeMuro's ability to make the complex and technical aspects of automobiles accessible and entertaining has endeared him to a wide audience. His engaging and relatable approach to car reviews, coupled with his unique storytelling style, has made him a beloved figure in the automotive media landscape. As a result, Doug has garnered a large following of fans who eagerly await his latest content, whether in video, written, or other forms, as he continues to share his passion for cars and the experiences they offer.</p>
+        <div className=' w-full flex flex-row justify-center'>
+        <FaInstagram size={40} color="#bc2a8d" className='m-5' />
+        <FaYoutube size={40} color="red" className='m-5' />
+        <FaGlobe size={40} color="blue" className='m-5' />
+        <img className='m-5'
+        src="https://static.vecteezy.com/system/resources/thumbnails/016/716/450/small/tiktok-icon-free-png.png"
+        alt="TikTok Icon"
+        width="40"
+        height="40"
+      />
+        </div>
         </p>
   )
 }

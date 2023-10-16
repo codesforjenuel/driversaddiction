@@ -11,6 +11,7 @@ const Blog = () => {
       <Banner/>
       <Dotw/>
       <Story/>
+      
     </div>
   )
 }
