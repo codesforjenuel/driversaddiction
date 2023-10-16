@@ -12,7 +12,7 @@ export default {
       'md': '760px',
       // => @media (min-width: 960px) { ... }
 
-      'lg': '1000px',
+      'lg': '1600px',
       // => @media (min-width: 1440px) { ... }
     },
     fontSize: {
@@ -25,9 +25,7 @@ export default {
       '5xl': '3.052rem',
     },
     extend: {
-      backgroundImage: {
-        'gt4rs': "url('https://res.cloudinary.com/dkaeetuud/image/upload/v1697393666/Drivers%20Addiction/porsche_banner_h72ref.jpg')",
-      }
+    
     },
   },
   plugins: [],
