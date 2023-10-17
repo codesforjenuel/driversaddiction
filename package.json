@@ -9,8 +9,8 @@
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm run build",
-    "start": "node server/server.js"
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm run start"
   },
   "repository": {
     "type": "git",
