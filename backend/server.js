@@ -1,8 +1,11 @@
 const express = require('express')
 const path = require('path');
+const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(routes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/dist')));
@@ -11,10 +14,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
   });
 }
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
