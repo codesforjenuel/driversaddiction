@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/connection')
 
 class Post extends Model {}
 // TODO: Define Post model
@@ -9,7 +9,7 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     }
   },
   {
@@ -17,8 +17,8 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'post'
   }
-);
+)
 
-module.exports = Post;
+module.exports = Post

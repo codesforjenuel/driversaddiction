@@ -1,6 +1,6 @@
-const User = require('./User');
-const Post = require('./Post');
+const User = require('./User')
+const Post = require('./Post')
 
 // TODO: Create table associations
 
-module.exports = { User, Project };
+module.exports = { User, Post }
