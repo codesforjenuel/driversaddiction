@@ -25,7 +25,10 @@ export default {
       '5xl': '3.052rem',
     },
     extend: {
-    
+      spacing: {
+        '500': '500px',
+        
+      },
     },
   },
   plugins: [],

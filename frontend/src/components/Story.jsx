@@ -29,6 +29,7 @@ Doug DeMuro's ability to make the complex and technical aspects of automobiles a
         height="40"
       />
         </div>
+        <iframe className='w-full sm:h-96 md:h-500 md:w-3/4 h-60 m-20' src="https://www.youtube.com/embed/V_fYfdXpkx4?si=FN3YtYjpCrQ9hAYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </p>
   )
 }
