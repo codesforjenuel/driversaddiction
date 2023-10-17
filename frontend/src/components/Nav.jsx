@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaFire } from 'react-icons/fa'
-import { FaBook } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 import { FaVideo } from 'react-icons/fa';
 import { MdDirectionsCar } from 'react-icons/md';
 import { MdStore } from 'react-icons/md';
@@ -15,7 +15,7 @@ const Nav = () => {
     <div className='w-full flex flex-wrap py-5 flex-row justify-between items-end '>
      <img src={daLogo} alt="drivers addiction logo" className='w-full sm:w-40 lg:w-55 h-35' />
         <ul className='flex flex-row justify-around items-center'>
-            <li className={liStyle}><Link to='/'><FaBook className={iconSize}  color="black" /></Link></li>
+            <li className={liStyle}><Link to='/'><FaHome className={iconSize} color="black" /></Link></li>
             <li className={liStyle}><Link to='/trending'><FaFire className={iconSize} color='red' /></Link></li>
             <li className={liStyle}><Link to='/videos'><FaVideo className={iconSize} color="black" /></Link></li>
             <li className={liStyle}><Link to='/drivers'><MdDirectionsCar className={iconSize} color="black" /></Link></li>
