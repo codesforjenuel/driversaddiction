@@ -29,6 +29,9 @@ export default {
         '500': '500px',
         
       },
+      colors: {
+        'darkgold': 'rgb(139, 101, 8)', // RGB value for dark gold
+      },
     },
   },
   plugins: [],

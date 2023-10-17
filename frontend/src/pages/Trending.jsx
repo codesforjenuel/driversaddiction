@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 const Trending = () => {
   return (
-    <div className='m-0 h-full w-full flex flex-col items-center  bg-gradient-to-tl from-stone-400 to-white-500'>
+    <div className='m-0 h-full w-full flex flex-col items-center  bg-white'>
       <Nav/>
       <div className="w-full h-40 md:h-500 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center  bg-[url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2023/Products/Concept-Car/Studio/_DSF4308_ret_lores.jpg/jcr:content/_DSF4308_ret_lores.jpg')]">
         </div>
