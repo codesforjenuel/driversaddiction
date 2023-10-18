@@ -27,6 +27,8 @@ export default {
     extend: {
       spacing: {
         '500': '500px',
+        '700': '700px',
+        '1000': '1000px'
         
       },
       colors: {
