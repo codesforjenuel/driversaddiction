@@ -18,8 +18,8 @@ const Nav = () => {
             <li className={liStyle}><Link to='/'><FaHome className={iconSize} color="black" /></Link></li>
             <li className={liStyle}><Link to='/trending'><FaFire className={iconSize} color='red' /></Link></li>
             <li className={liStyle}><Link to='/videos'><FaVideo className={iconSize} color="black" /></Link></li>
-            <li className={liStyle}><Link to='/drivers'><MdDirectionsCar className={iconSize} color="black" /></Link></li>
-            <li className={liStyle}><Link to='/shop'><MdStore className={iconSize} color="black" /></Link></li>
+            {/* <li className={liStyle}><Link to='/drivers'><MdDirectionsCar className={iconSize} color="black" /></Link></li> */}
+            {/* <li className={liStyle}><Link to='/shop'><MdStore className={iconSize} color="black" /></Link></li> */}
         </ul>
         <h3><Link to='/login' className='font-medium text-md md:text-base mx-1 flex flex-row text-center drop-shadow-[0_2px_1px_rgba(0,0,0,0.25)] hover:drop-shadow-[0_4px_1px_rgba(0,0,0,0.25)] transition duration-5s'><FaUser className={iconSize} color="black" /></Link></h3>
     </div>
