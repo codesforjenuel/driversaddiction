@@ -7,6 +7,7 @@ import Drivers from './pages/Drivers'
 import Shop from './pages/shop'
 import Trending from './pages/trending'
 import Videos from './pages/videos'
+import Management from './pages/Management'
 import Login from './pages/Login'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 <Route path='/shop' element={<Shop />}/>
 <Route path='/trending' element={<Trending />}/>
 <Route path='/videos' element={<Videos />}/>
+<Route path='/management' element={<Management />}/>
 <Route path='/login' element={<Login />}/>
    </Routes>
   )

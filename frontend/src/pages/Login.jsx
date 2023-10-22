@@ -14,7 +14,7 @@ const Login = () => {
   <input type="password" name="password" className=' border-2 border-solid border-slate-500 rounded-md mb-5' required />
 <div>
   <button className='w-20 bg-slate-300 rounded-md p-2 hover:bg-slate-400 transition-transform m-2'>LOGIN</button>
-  <button className='w-20 bg-slate-300 rounded-md p-2 hover:bg-slate-400 transition-transform m-2'>SIGN UP</button>
+  {/* <button className='w-20 bg-slate-300 rounded-md p-2 hover:bg-slate-400 transition-transform m-2'>SIGN UP</button> */}
 </div>
 </div>
 

@@ -4,12 +4,12 @@ import Footer from '../components/Footer'
 
 const Trending = () => {
   return (
-    <div className='m-0 h-full w-full flex flex-col items-center  bg-white'>
+    <div className='m-0 h-full w-full flex flex-col items-center  bg-gradient-to-br from-white to-stone-300'>
       <Nav/>
       <div className="w-full h-40 md:h-500 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center  bg-[url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2023/Products/Concept-Car/Studio/_DSF4308_ret_lores.jpg/jcr:content/_DSF4308_ret_lores.jpg')]">
         </div>
 
-        <p className=' w-full max-w-screen-lg h-full flex flex-col items-center shadow-md'>
+        <p className=' w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-white'>
     <h1 className='text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10'>Porsche Mission X</h1>
     <p className=' mx-10 text-left md:text-xl lg:mx-44 md:leading-10'>
     06/08/2023
