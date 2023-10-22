@@ -6,7 +6,7 @@ import { FaGlobe } from 'react-icons/fa';
 const Story = () => {
   return (
     
-    <p className=' w-full max-w-screen-lg h-full flex flex-col items-center shadow-md'>
+    <p className=' w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-white'>
     <h1 className='text-2xl m-8 font-normal'>The Story</h1>
     <p className=' mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10'>
 Doug DeMuro is a prominent figure in the world of automotive journalism and entertainment, renowned for his captivating storytelling and unique approach to car reviews. His rise to fame can be attributed to his engaging YouTube channel and website, where he offers detailed evaluations of various vehicles, from the most exotic supercars to everyday cars, capturing the hearts of car enthusiasts and casual viewers alike.

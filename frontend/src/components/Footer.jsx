@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='w-full m-10 text-center flex flex-col items-center'>
+    <div className='w-full p-10 text-center flex flex-col items-center bg-white'>
         <h3>© 2023 Drivers Addiction. All rights reserved.
 Any unauthorized reproduction or distribution of the content on this website is prohibited.
 </h3>
