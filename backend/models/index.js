@@ -1,5 +1,4 @@
 const User = require('./User')
-const Post = require('./Post')
 const DriverOfTheWeek = require('./driverOfTheWeek')
 const DriverSocial = require('./DriverSocial')
 const Video = require('./Video')
@@ -13,4 +12,4 @@ Video.hasOne(DriverOfTheWeek, { foreignKey: 'videoId' })
 TrendingPost.belongsTo(Video, { foreignKey: 'videoId', as: 'video' })
 Video.hasOne(TrendingPost, { foreignKey: 'videoId' })
 
-module.exports = { DriverOfTheWeek, DriverSocial, Video, TrendingPost, User, Post }
+module.exports = { DriverOfTheWeek, DriverSocial, Video, TrendingPost, User }
