@@ -1,22 +1,24 @@
 const router = require('express').Router()
 const { User } = require('../../models')
 
-// TODO: Disable this route in production
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body)
-    // Remove password from response message
-    delete userData.dataValues.password
-    req.session.save(() => {
-      req.session.user_id = userData.id
-      req.session.logged_in = true
+// This route is disabled in production
+if (process.env.NODE_ENV !== 'production') {
+  router.post('/', async (req, res) => {
+    try {
+      const userData = await User.create(req.body)
+      // Remove password from response message
+      delete userData.dataValues.password
+      req.session.save(() => {
+        req.session.user_id = userData.id
+        req.session.logged_in = true
 
-      res.status(200).json(userData)
-    })
-  } catch (err) {
-    res.status(400).json(err)
-  }
-})
+        res.status(200).json(userData)
+      })
+    } catch (err) {
+      res.status(400).json(err)
+    }
+  })
+}
 
 router.post('/login', async (req, res) => {
   try {
