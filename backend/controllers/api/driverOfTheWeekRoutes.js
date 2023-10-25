@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { DriverOfTheWeek, Video } = require('../../models')
+const { DriverOfTheWeek, Video, DriverSocial } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 // Read routes
@@ -10,7 +10,11 @@ router.get('/', async (req, res) => {
   try {
     const driverOfTheWeekData = await DriverOfTheWeek.findOne({
       order: [['createdAt', 'DESC']],
-      include: [{ model: Video, as: 'video' }]
+      include: [{ model: Video, as: 'video' },
+        {
+          model: DriverSocial,
+          as: 'socials'
+        }]
     })
     res.status(200).json(driverOfTheWeekData)
   } catch (err) {
@@ -22,7 +26,11 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const driverOfTheWeekData = await DriverOfTheWeek.findByPk(req.params.id, {
-      include: [{ model: Video, as: 'video' }]
+      include: [{ model: Video, as: 'video' },
+        {
+          model: DriverSocial,
+          as: 'socials'
+        }]
     })
     res.status(200).json(driverOfTheWeekData)
   } catch (err) {
@@ -42,6 +50,10 @@ router.post('/', withAuth, async (req, res) => {
       driverData.videoId = videoData.id
     }
     const driverOfTheWeekData = await DriverOfTheWeek.create(driverData)
+    if (req.body.socials) {
+      const socials = req.body.socials.map(social => ({ ...social, driverProfileId: driverOfTheWeekData.id }))
+      await DriverSocial.bulkCreate(socials)
+    }
     res.status(200).json(driverOfTheWeekData)
   } catch (err) {
     res.status(400).json(err)
