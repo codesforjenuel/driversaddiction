@@ -11,6 +11,13 @@ DriverSocial.init({
       notEmpty: true
     }
   },
+  socialAcc: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   url: {
     type: DataTypes.STRING,
     allowNull: false,
