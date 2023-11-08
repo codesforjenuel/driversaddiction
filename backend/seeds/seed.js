@@ -54,10 +54,12 @@ const seed = async () => {
   // Create 4 socials for each driver
   for (const driver of drivers) {
     await DriverSocial.bulkCreate([
-      { name: 'Facebook', url: 'https://facebook.com/driver' + driver.id, driverProfileId: driver.id },
-      { name: 'Twitter', url: 'https://twitter.com/driver' + driver.id, driverProfileId: driver.id },
-      { name: 'Instagram', url: 'https://instagram.com/driver' + driver.id, driverProfileId: driver.id },
-      { name: 'LinkedIn', url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id }
+      { name: 'Facebook', socialAcc: true, url: 'https://facebook.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Twitter', socialAcc: true, url: 'https://twitter.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Instagram', socialAcc: true, url: 'https://instagram.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Youtube', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Website', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Tiktok', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
     ])
   }
 
