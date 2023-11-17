@@ -4,9 +4,9 @@ import {Routes, Route} from 'react-router-dom'
 //folowing imports the pages so we can use them as routes
 import Blog from './pages/Blog'
 import Drivers from './pages/Drivers'
-import Shop from './pages/shop'
-import Trending from './pages/trending'
-import Videos from './pages/videos'
+import Shop from './pages/Shop'
+import Trending from './pages/Trending'
+import Videos from './pages/Videos'
 import Management from './pages/Management'
 import Login from './pages/Login'
 
