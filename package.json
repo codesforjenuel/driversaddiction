@@ -4,7 +4,7 @@
   "description": "A webapp design for car enthusiast",
   "main": "./backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "install": "cd backend && npm i && cd ../frontend && npm i",
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
