@@ -6,12 +6,8 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState(null)
   const [driverBio, setDriverBio] = useState(null)
   const [story, setStoryInfo] = useState(null)
-  const [url, setUrl] = useState(null)
-  const [isShort, setIsShort] = useState(null)
   const URL = 'http://localhost:3001/api/driverOfTheWeek'
-  const handleVideoChange= (e) => {
-    setIsShort(e.target.value)
-    }
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(URL)
@@ -25,14 +21,16 @@ const Blogform = () => {
 
   const handleFormSubmit = (event) => {
 event.preventDefault();
+
+try {
+
+
 const dataToSubmit = {
-  heroImage,
-  profileImage,
-  driversName,
-  driverBio,
-  story,
-  url,
-  isShort
+  heroImage:heroImage,
+  profileImage:profileImage,
+  driversName:driversName,
+  driverBio:driverBio,
+  story:story,
 }
 fetch('http://localhost:3001/api/driverOfTheWeek/1', {
   method: 'PUT' ,
@@ -43,7 +41,10 @@ fetch('http://localhost:3001/api/driverOfTheWeek/1', {
 }).then(res => res.json())
 .then(res => {
   console.log(res)
-})
+})}catch (error) {
+  // Handle fetch error
+  console.error('Error occurred while logging in:', error);
+}
   }
 
   return (
@@ -59,14 +60,9 @@ fetch('http://localhost:3001/api/driverOfTheWeek/1', {
  <input type="text" name="bio" value={driverBio} className=' border-2 border-solid border-slate-500 rounded-md mb-5' required onSubmit={(event) => setDriverBio(event.target.value)}/>
  <label htmlFor="story">Story</label>
  <input type="text" name="story" value={story} className=' border-2 border-solid border-slate-500 rounded-md mb-5' required onSubmit={(event) => setStoryInfo(event.target.value)}/>
- <label htmlFor="video">Video URL</label>
- <input type="text" name="video" value={url} placeholder='if no video,leave blank!' className=' border-2 border-solid border-slate-500 rounded-md mb-5' onSubmit={(event) => setUrl(event.target.value)}/>
- <div className=' flex justify-between w-20 items-center text-center'>
- <label htmlFor="videoTrue">True</label>
- <input type="radio" name="videoAv" value={isShort || "true"} onSubmit={handleVideoChange} />
- <label htmlFor="videoFalse">false</label>
- <input type="radio" name="videoAv" value={isShort || "false"} onSubmit={handleVideoChange} />
- </div>
+
+
+
  <button type="submit" className='w-20 bg-slate-300 rounded-md p-2 hover:bg-slate-400 transition-transform m-2'>Update</button>
  </form>
 

@@ -16,12 +16,14 @@ const Dotw = () => {
   const [driverTik, setDriverTik] = useState("");
   const [driverWeb, setDriverWeb] = useState("");
   const [videoInt, setVideoInt] = useState(false);
+  const [videoUrl, setVideoUrl] = useState("");
   const URL = "http://localhost:3001/api/driverOfTheWeek";
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(URL);
       result.json().then((data) => {
+        console.log(data)
         setDriverPhoto(data.profileImage);
         setDriverName(data.driversName);
         setDriverBio(data.driverBio);
@@ -32,6 +34,7 @@ const Dotw = () => {
         setDriverTik(data.socials[1].url);
         setDriverWeb(data.socials[0].url);
         setVideoInt(data.video.isShort);
+        setVideoUrl(data.video.url);
       });
     };
     fetchData();
@@ -40,14 +43,16 @@ const Dotw = () => {
   return (
     <div className=" w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
       <div
-        className={`w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-top lg:bg-top bg-[url('${driverHero}')]`}
-      ></div>
+  className={`w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center lg:bg-center`}
+  style={{backgroundImage: `url(${driverHero})`}}
+></div>
       <h2 className="text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
         DRIVER OF THE WEEK
       </h2>
       <div className=" w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-darkgray">
         <div
-          className={`shadow-lg w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center bg-[url('${driverPhoto}')]`}
+          className={` shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center `}
+          style={{backgroundImage: `url(${driverPhoto})`}}
         ></div>
         <div className="flex flex-col m-8 h-full">
           <h2 className="text-center font-normal text-2xl ">{driversName}</h2>
@@ -96,11 +101,11 @@ const Dotw = () => {
         {videoInt === true && (
           <iframe
             className="w-full sm:h-96 md:h-500 md:w-3/4 h-60 m-20"
-            src="https://www.youtube.com/embed/V_fYfdXpkx4?si=FN3YtYjpCrQ9hAYM"
+            src={videoUrl}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
+  allowFullScreen={true}
           ></iframe>
         )}
       </p>
