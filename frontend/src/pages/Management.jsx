@@ -3,12 +3,17 @@ import Nav from '../components/Nav'
 import Blogform from '../components/Blogform'
 import Trendingform from '../components/Trendingform'
 import Videosform from '../components/Videosform'
+import auth from '../utils/auth'
 
 const Management = () => {
 const[page, setPage] = useState(null)
 
 const handlePageChange= (e) => {
 setPage(e.target.value)
+}
+if (!auth.loggedIn()) {
+window.location.assign("/login")
+return 
 }
 
   return (
