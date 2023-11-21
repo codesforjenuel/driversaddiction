@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { DriverOfTheWeek, Video, DriverSocial } = require('../../models')
-const withAuth = require('../../utils/auth')
+const { withAuth } = require('../../utils/auth')
 
 // Read routes
 // This route finds the newest DriverOfTheWeek.

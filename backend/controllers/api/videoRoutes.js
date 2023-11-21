@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Video } = require('../../models')
-const withAuth = require('../../utils/auth')
+const { withAuth } = require('../../utils/auth')
 
 // Read routes
 router.get('/', async (req, res) => {

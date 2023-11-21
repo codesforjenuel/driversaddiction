@@ -59,7 +59,7 @@ const seed = async () => {
       { name: 'Instagram', socialAcc: true, url: 'https://instagram.com/driver' + driver.id, driverProfileId: driver.id },
       { name: 'Youtube', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
       { name: 'Website', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
-      { name: 'Tiktok', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id },
+      { name: 'Tiktok', socialAcc: true, url: 'https://linkedin.com/driver' + driver.id, driverProfileId: driver.id }
     ])
   }
 
