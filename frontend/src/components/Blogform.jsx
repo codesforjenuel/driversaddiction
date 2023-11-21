@@ -33,7 +33,7 @@ const dataToSubmit = {
   driverBio,
   story,
 }
-fetch('http://localhost:3001/api/driverOfTheWeek/655c31dcd615300eba94d16f', {
+fetch('/api/driverOfTheWeek/655c31dcd615300eba94d16f', {
   method: 'PUT' ,
   headers: {
     'Content-type' : 'application/json; charset=UTF-8',
