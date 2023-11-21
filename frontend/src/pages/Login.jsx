@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import auth from "../utils/auth"
 
 const Login = () => {
   const [postName, setPostName] = useState("");
@@ -31,8 +32,7 @@ const Login = () => {
   
         if (response.ok) {
           const responseData = await response.json();
-          console.log(responseData); // Handle the response data as needed
-          console.log(document.cookie)
+      auth.login(responseData)
         } else {
           console.error('Failed to perform action');
         }
@@ -40,26 +40,7 @@ const Login = () => {
         console.error('Error occurred:', error);
       }
     } else if (action === 'logout') {
-      url = 'http://localhost:3001/api/users/logout';
-
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({})
-        });
-
-        if (response.ok) {
-          console.log('User logged out successfully.');
-          // Additional logic after successful logout if needed
-        } else {
-          console.error('Failed to logout.');
-        }
-      } catch (error) {
-        console.error('Error occurred while logging out:', error);
-      }
+      auth.logout()
     }
   };
 
