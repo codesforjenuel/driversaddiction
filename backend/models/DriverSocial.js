@@ -1,44 +1,29 @@
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection')
+const mongoose = require('mongoose')
 
-// DriverSocial Model
-class DriverSocial extends Model {}
-DriverSocial.init(
-  {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
-    },
-    socialAcc: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
-    },
-    url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-        isUrl: true
-      }
-    },
-    driverProfileId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'DriverOfTheWeeks', // 'DriverOfTheWeek' would be the table name in the database
-        key: 'id'
-      }
-    }
+// Define the schema
+const DriverSocialSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
   },
-  {
-    sequelize,
-    modelName: 'DriverSocial'
+  socialAcc: {
+    type: Boolean,
+    required: true
+  },
+  url: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        // Simple regex for URL validation
+        return /^(ftp|http|https):\/\/[^ "]+$/.test(v)
+      },
+      message: props => `${props.value} is not a valid URL!`
+    }
   }
-)
+})
+
+// Create the model
+const DriverSocial = mongoose.model('DriverSocial', DriverSocialSchema)
 
 module.exports = DriverSocial

@@ -1,31 +1,29 @@
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection')
+const mongoose = require('mongoose')
 
-// Video Model
-class Video extends Model {}
-Video.init({
+// Define the schema
+const VideoSchema = new mongoose.Schema({
   title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: String,
+    required: [true, 'Title is required']
   },
   url: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    type: String,
+    required: [true, 'URL is required'],
     validate: {
-      notEmpty: true,
-      isUrl: true
+      validator: function (v) {
+        // Simple regex for URL validation
+        return /^(ftp|http|https):\/\/[^ "]+$/.test(v)
+      },
+      message: props => `${props.value} is not a valid URL!`
     }
   },
   isShort: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false
+    type: Boolean,
+    default: false
   }
-}, {
-  sequelize,
-  modelName: 'Video'
 })
+
+// Create the model
+const Video = mongoose.model('Video', VideoSchema)
 
 module.exports = Video
