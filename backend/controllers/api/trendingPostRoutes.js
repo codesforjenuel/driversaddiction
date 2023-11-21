@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { TrendingPost, Video } = require('../../models')
-const withAuth = require('../../utils/auth')
+const { withAuth } = require('../../utils/auth')
 
 // TODO: Add CRUD routes for TrendingPost model
 // Read routes
