@@ -6,6 +6,7 @@ import { FaVideo } from "react-icons/fa";
 // import { MdDirectionsCar } from 'react-icons/md';
 // import { MdStore } from 'react-icons/md';
 import { FaUser } from "react-icons/fa";
+import auth from "../utils/auth";
 
 const Nav = () => {
   const daLogo =
@@ -38,17 +39,17 @@ const Nav = () => {
         </li>
         {/* <li className={liStyle}><Link to='/drivers'><MdDirectionsCar className={iconSize} color="black" /></Link></li> */}
         {/* <li className={liStyle}><Link to='/shop'><MdStore className={iconSize} color="black" /></Link></li> */}
-        <li className={liStyle}>
+       {auth.loggedIn() && ( <li className={liStyle}>
           <Link to="/management">
             <img
               className={daLogo}
               src="https://res.cloudinary.com/dkaeetuud/image/upload/v1697447033/Drivers%20Addiction/white-circle-free-png_fo3uqd.webp"
-              alt="TikTok Icon"
+              alt="DA Icon"
               width="40"
               height="40"
             />
           </Link>
-        </li>
+        </li>)}
       </ul>
       <h3>
         <Link
