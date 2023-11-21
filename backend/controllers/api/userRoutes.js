@@ -2,44 +2,41 @@ const router = require('express').Router()
 const { User } = require('../../models')
 const { signToken } = require('../../utils/auth')
 
-// This route is disabled in production
+// POST route for User creation (disabled in production)
 if (process.env.NODE_ENV !== 'production') {
   router.post('/', async (req, res) => {
     try {
-      const userData = await User.create(req.body)
-      // Remove password from response message
-      delete userData.dataValues.password
-      const token = signToken(userData)
+      const user = await User.create(req.body)
+      const userWithoutPassword = user.toObject()
+      delete userWithoutPassword.password // Remove password from response
+      const token = signToken(user)
       res.header('authorization', `Bearer ${token}`)
       res.status(200).json(token)
     } catch (err) {
       res.status(400).json(err)
+      console.log(err)
     }
   })
 }
 
+// POST route for User login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } })
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' })
+    const user = await User.findOne({ email: req.body.email })
+    if (!user) {
+      res.status(400).json({ message: 'Incorrect email or password, please try again' })
       return
     }
 
-    const validPassword = await userData.checkPassword(req.body.password)
-
+    const validPassword = await user.checkPassword(req.body.password)
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' })
+      res.status(400).json({ message: 'Incorrect email or password, please try again' })
       return
     }
-    // Remove password from response message
-    delete userData.dataValues.password
-    const token = signToken(userData)
+
+    const userWithoutPassword = user.toObject()
+    delete userWithoutPassword.password // Remove password from response
+    const token = signToken(user)
     res.header('authorization', `Bearer ${token}`)
     res.json(token)
   } catch (err) {
@@ -47,4 +44,5 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err)
   }
 })
+
 module.exports = router

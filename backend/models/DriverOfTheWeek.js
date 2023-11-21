@@ -1,48 +1,38 @@
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection')
+const mongoose = require('mongoose')
 
-// DriverProfile Model
-class DriverOfTheWeek extends Model {}
-DriverOfTheWeek.init({
+// Define the schema
+const DriverOfTheWeekSchema = new mongoose.Schema({
   heroImage: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: String,
+    required: true
   },
   profileImage: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: String,
+    required: true
   },
   driversName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: String,
+    required: true
   },
   driverBio: {
-    type: DataTypes.TEXT,
-    allowNull: false
+    type: String,
+    required: true
   },
   story: {
-    type: DataTypes.TEXT,
-    allowNull: false
+    type: String,
+    required: true
   },
   videoId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Videos', // 'Videos' is the table name for the Video model
-      key: 'id'
-    }
-  }
-}, {
-  sequelize,
-  modelName: 'DriverOfTheWeek'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Video'
+  },
+  socials: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'DriverSocial'
+  }]
 })
+
+// Create the model
+const DriverOfTheWeek = mongoose.model('DriverOfTheWeek', DriverOfTheWeekSchema)
 
 module.exports = DriverOfTheWeek

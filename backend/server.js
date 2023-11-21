@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const routes = require('./controllers')
 const cors = require('cors')
-const sequelize = require('./config/connection')
+const db = require('./config/connection')
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'))
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`)
+  })
 })
