@@ -6,17 +6,17 @@ import { FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Dotw = () => {
-  const [driverPhoto, setDriverPhoto] = useState("");
-  const [driversName, setDriverName] = useState("");
-  const [driverBio, setDriverBio] = useState("");
-  const [driverHero, setDriverHero] = useState("");
-  const [driverStory, setDriverStory] = useState("");
-  const [driverInst, setDriverInst] = useState("");
-  const [driverYt, setDriverYt] = useState("");
-  const [driverTik, setDriverTik] = useState("");
-  const [driverWeb, setDriverWeb] = useState("");
-  const [videoInt, setVideoInt] = useState(false);
-  const [videoUrl, setVideoUrl] = useState("");
+  const [driverPhoto, setDriverPhoto] = useState("https://assets.mycast.io/actor_images/actor-keiichi-tsuchiya-283104_large.jpg?1633813197");
+  const [driversName, setDriverName] = useState("keiichi tsuchiya");
+  const [driverBio, setDriverBio] = useState("Keiichi Tsuchiya is a Japanese professional race car driver. He is known as the Drift King for his nontraditional use of drifting in non-drifting racing events and his role in popularizing drifting as a motorsport.");
+  const [driverHero, setDriverHero] = useState("https://www.gtplanet.net/forum/media/keiichi-tsuchiyas-ae86-trueno.576/full");
+  const [driverStory, setDriverStory] = useState("The sport of drifting is surrounded by a man, who started at humble beginnings and made his way as a rebellious teenager who honed his driving skills on Touge (Japanese mountain roads) and reached the top podium as a world-class racing driver. The man who was known for his flamboyant driving style and for changing the demographics of motorsport racing by turning his wheels in another direction. Heres the story of Dorikin (Drift King) also known by his real name Keiichi Tsuchiya.");
+  const [driverInst, setDriverInst] = useState("https://www.instagram.com/keiichi_tsuchiya_/");
+  const [driverYt, setDriverYt] = useState("https://www.youtube.com/@CARPRIMEENGLISHCHANNEL");
+  const [driverTik, setDriverTik] = useState("https://www.tiktok.com/discover/Keiichi-Tsuchiya?lang=en");
+  const [driverWeb, setDriverWeb] = useState("https://www.k1planning.com/");
+  const [videoInt, setVideoInt] = useState(true);
+  const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/DcYwisP1x00?si=TPoS8YN-BMcoKuQ7");
   const URL = "/api/driverOfTheWeek/655c31dcd615300eba94d16f";
 
   useEffect(() => {
