@@ -27,7 +27,12 @@ export default {
     extend: {
       spacing: {
         '500': '500px',
+        '700': '700px',
+        '1000': '1000px'
         
+      },
+      boxShadow: {
+        '3xl': '0 0px 5px 5px rgba(0, 0, 0, 0.3)',
       },
       colors: {
         'darkgold': 'rgb(139, 101, 8)', // RGB value for dark gold

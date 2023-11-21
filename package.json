@@ -1,0 +1,28 @@
+{
+  "name": "driversaddiction",
+  "version": "1.0.0",
+  "description": "A webapp design for car enthusiast",
+  "main": "./backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "install": "cd backend && npm i && cd ../frontend && npm i",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesforjenuel/driversaddiction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codesforjenuel/driversaddiction/issues"
+  },
+  "homepage": "https://github.com/codesforjenuel/driversaddiction#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
