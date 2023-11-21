@@ -14,7 +14,7 @@ const Login = () => {
     let url = '';
 
     if (action === 'login') {
-      url = 'http://localhost:3001/api/users/login';
+      url = '/api/users/login';
       try {
         const dataToSubmit = {
           name: postName,
