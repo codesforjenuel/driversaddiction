@@ -17,7 +17,7 @@ const Dotw = () => {
   const [driverWeb, setDriverWeb] = useState("");
   const [videoInt, setVideoInt] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
-  const URL = "http://localhost:3001/api/driverOfTheWeek";
+  const URL = "/api/driverOfTheWeek/655c31dcd615300eba94d16f";
 
   useEffect(() => {
     const fetchData = async () => {
