@@ -7,14 +7,15 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState("")
   const [driverBio, setDriverBio] = useState("")
   const [story, setStoryInfo] = useState("")
-  const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
+  const [apiInfo, setApiInfo] = useState("")
+  const URL = '/api/driverOfTheWeek/'
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(URL)
      result.json().then(data => {
       console.log(data)
-    
+    setApiInfo(JSON.stringify(data))
      })
     }
     fetchData()
@@ -67,9 +68,10 @@ const Blogform = () => {
  <label htmlFor="story">Story</label>
  <input type="text" name="story" value={story} className=' border-2 border-solid border-slate-500 rounded-md mb-5' required onChange={(event) => setStoryInfo(event.target.value)}/>
 
-
+<p className='w-20 flex flex-col items-center'>{apiInfo}</p>
 
  <button type="submit" className='w-20 bg-slate-300 rounded-md p-2 hover:bg-slate-400 transition-transform m-2'>Update</button>
+
  </form>
 
   )
