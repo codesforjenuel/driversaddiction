@@ -7,18 +7,7 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState("")
   const [driverBio, setDriverBio] = useState("")
   const [story, setStoryInfo] = useState("")
-  const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(URL)
-     result.json().then(data => {
-      console.log(data)
-    
-     })
-    }
-    fetchData()
-  }, [])
+  
 
   const handleFormSubmit = (event) => {
 event.preventDefault();
@@ -47,6 +36,18 @@ fetch('/api/driverOfTheWeek/655c31dcd615300eba94d16f', {
   // Handle fetch error
   console.error('Error occurred while logging in:', error);
 }
+const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(URL)
+     result.json().then(data => {
+      console.log(data)
+    
+     })
+    }
+    fetchData()
+  }, [])
   }
 
   return (
