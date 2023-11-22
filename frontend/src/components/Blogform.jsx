@@ -7,36 +7,7 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState("")
   const [driverBio, setDriverBio] = useState("")
   const [story, setStoryInfo] = useState("")
-  
-
-  const handleFormSubmit = (event) => {
-event.preventDefault();
-
-try {
-
-
-const dataToSubmit = {
-  heroImage,
-  profileImage,
-  driversName,
-  driverBio,
-  story,
-}
-fetch('/api/driverOfTheWeek/655c31dcd615300eba94d16f', {
-  method: 'PUT' ,
-  headers: {
-    'Content-type' : 'application/json; charset=UTF-8',
-    'authorization' : `Bearer ${auth.getToken()}`
-  }, 
-  body: JSON.stringify(dataToSubmit)
-}).then(res => res.json())
-.then(res => {
-  console.log(res)
-})}catch (error) {
-  // Handle fetch error
-  console.error('Error occurred while logging in:', error);
-}
-const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
+  const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +19,39 @@ const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
     }
     fetchData()
   }, [])
-  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const dataToSubmit = {
+        heroImage,
+        profileImage,
+        driversName,
+        driverBio,
+        story,
+      };
+  
+      const response = await fetch(URL, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'authorization': `Bearer ${auth.getToken()}`
+        },
+        body: JSON.stringify(dataToSubmit)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+  
+      const responseData = await response.json();
+      console.log('Data updated successfully:', responseData);
+    } catch (error) {
+      // Handle fetch error
+      console.error('Error occurred while updating data:', error);
+    }
+  };
 
   return (
     
