@@ -7,7 +7,7 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState("")
   const [driverBio, setDriverBio] = useState("")
   const [story, setStoryInfo] = useState("")
-  const URL = '/api/driverOfTheWeek/655c31dcd615300eba94d16f'
+  const URL = 'https://driversaddiction.azurewebsites.net/api/driverOfTheWeek/'
 
   useEffect(() => {
     const fetchData = async () => {
