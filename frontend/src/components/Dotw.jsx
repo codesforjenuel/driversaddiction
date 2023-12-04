@@ -17,7 +17,7 @@ const Dotw = () => {
   const [driverWeb, setDriverWeb] = useState("https://www.k1planning.com/");
   const [videoInt, setVideoInt] = useState(true);
   const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/DcYwisP1x00?si=TPoS8YN-BMcoKuQ7");
-  const URL = "/api/driverOfTheWeek/";
+  const URL = "/api/driverOfTheWeek/655c31dcd615300eba94d16f";
 
   useEffect(() => {
     const fetchData = async () => {

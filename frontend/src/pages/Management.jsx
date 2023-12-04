@@ -27,6 +27,7 @@ return
     <option value="blog">Blog</option>
     <option value="trending">Trending</option>
     <option value="videos">Videos</option>
+    <option value="user">User</option>
   </select>
   {page === 'blog' &&  
 <Blogform />
@@ -37,6 +38,7 @@ return
   {page === 'videos' &&  
 <Videosform/>
   }
+
 </div>      
 </div>
 </div>

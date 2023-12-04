@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
+import Createruserform from "../components/Createuserform";
 import Footer from "../components/Footer";
 import auth from "../utils/auth"
 
@@ -14,7 +15,7 @@ const Login = () => {
     let url = '';
 
     if (action === 'login') {
-      url = '/api/users/login';
+      url = '/api/users/login/';
       try {
         const dataToSubmit = {
           name: postName,
@@ -99,6 +100,7 @@ const Login = () => {
           </button>
         </div>
       </form>
+      <Createruserform/>
     </div>
     <Footer />
   </div>
