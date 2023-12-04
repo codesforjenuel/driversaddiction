@@ -7,8 +7,10 @@ const Blogform = () => {
   const [driversName, setDriversName] = useState("")
   const [driverBio, setDriverBio] = useState("")
   const [story, setStoryInfo] = useState("")
+
   const [apiInfo, setApiInfo] = useState("")
   const URL = '/api/driverOfTheWeek'
+
 
   useEffect(() => {
     const fetchData = async () => {
