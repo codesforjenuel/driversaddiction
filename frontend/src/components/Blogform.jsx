@@ -10,6 +10,7 @@ const Blogform = () => {
 
   const [apiInfo, setApiInfo] = useState("")
   const URL = '/api/driverOfTheWeek'
+  const URL2 = '/api/driverOfTheWeek/656e7311f58ad1783419a02b'
 
 
   useEffect(() => {
@@ -66,7 +67,7 @@ const Blogform = () => {
           story,
         };
     
-        const response = await fetch(URL, {
+        const response = await fetch(URL2, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
