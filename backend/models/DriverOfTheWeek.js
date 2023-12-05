@@ -29,7 +29,12 @@ const DriverOfTheWeekSchema = new mongoose.Schema({
   socials: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'DriverSocial'
-  }]
+  }],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    index: true
+  }
 })
 
 // Create the model

@@ -20,6 +20,11 @@ const VideoSchema = new mongoose.Schema({
   isShort: {
     type: Boolean,
     default: false
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    index: true
   }
 })
 
