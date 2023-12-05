@@ -9,8 +9,8 @@ const Blogform = () => {
   const [story, setStoryInfo] = useState("");
 
   const [apiInfo, setApiInfo] = useState("");
-  const URL = "/api/driverOfTheWeek";
-  const URL2 = "/api/driverOfTheWeek/";
+  const URL = "/api/driverOfTheWeek/656e7311f58ad1783419a02b";
+  const URL2 = "/api/driverOfTheWeek";
 
   useEffect(() => {
     const fetchData = async () => {
