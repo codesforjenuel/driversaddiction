@@ -9,7 +9,7 @@ const Blogform = () => {
   const [story, setStoryInfo] = useState("");
 
   const [apiInfo, setApiInfo] = useState("");
-  const URL = "/api/driverOfTheWeek/656e7311f58ad1783419a02b";
+  const URL = "/api/driverOfTheWeek/656f7d384f11419695eb5660";
   const URL2 = "/api/driverOfTheWeek";
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const Blogform = () => {
           driverBio,
           story,
         };
+        console.log(dataToSubmit)
 
         const response = await fetch(URL, {
           method: "PUT",
