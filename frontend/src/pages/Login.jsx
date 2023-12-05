@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
-import Createruserform from "../components/Createuserform";
+// import Createruserform from "../components/Createuserform";
 import Footer from "../components/Footer";
 import auth from "../utils/auth"
 
@@ -100,7 +100,7 @@ const Login = () => {
           </button>
         </div>
       </form>
-      <Createruserform/>
+      {/* <Createruserform/> */}
     </div>
     <Footer />
   </div>
