@@ -15,7 +15,7 @@ const Blogform = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch(URL)
+      const result = await fetch(URL2)
      result.json().then(data => {
       console.log(data)
     setApiInfo(JSON.stringify(data))
@@ -26,7 +26,7 @@ const Blogform = () => {
 
   const handleFormSubmit = async (event, action) => {
     event.preventDefault();
-  if (action === 'post') {
+  if (action === 'update') {
 
   
     try {
@@ -39,7 +39,7 @@ const Blogform = () => {
       };
   
       const response = await fetch(URL, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
           'authorization': `Bearer ${auth.getToken()}`
@@ -57,7 +57,7 @@ const Blogform = () => {
       // Handle fetch error
       console.error('Error occurred while updating data:', error);
     }
-    } else if (action === 'update') {
+    } else if (action === 'post') {
       try {
         const dataToSubmit = {
           heroImage,
@@ -68,7 +68,7 @@ const Blogform = () => {
         };
     
         const response = await fetch(URL2, {
-          method: 'PUT',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
             'authorization': `Bearer ${auth.getToken()}`
