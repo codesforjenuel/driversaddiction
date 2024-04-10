@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 
 const Dotw = () => {
-  const [driverPhoto, setDriverPhoto] = useState("");
-  const [driversName, setDriverName] = useState("");
-  const [driverBio, setDriverBio] = useState("");
-  const [driverHero, setDriverHero] = useState("");
-  const [driverStory, setDriverStory] = useState("");
+  const [driverPhoto, setDriverPhoto] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Juan_Carlos_Viana_Prieto.jpg/800px-Juan_Carlos_Viana_Prieto.jpg");
+  const [driversName, setDriverName] = useState("JUCA");
+  const [driverBio, setDriverBio] = useState("The biggest automobile influencer in all of Mexico, currently known to have the first ever Porsche 997 Turbo RWB in all history of Mexico done by Akira Nakai");
+  const [driverHero, setDriverHero] = useState("https://i.ytimg.com/vi/Ij7bO6TuEmw/maxresdefault.jpg");
+  const [driverStory, setDriverStory] = useState('Juan Carlos Viana Prieto, known affectionately as Juca Viapri, traces his passion for cars back to his childhood in México City, where his love for automobiles ignited at a young age. Born in 1992, Juca was always an adventurous and spirited youngster, eager to explore the world around him. At the tender age of twelve, he discovered his knack for driving, fueling his dreams of becoming a professional racer. However, as time unfolded, Juca redirected his fervor towards the art of tuning cars, ultimately propelling him into the realm of social media where he emerged as a prominent influencer in his niche.  Inspired by iconic films such as "Gone in 60 Seconds" and "The Fast and the Furious" saga, Juca found himself captivated by the adrenaline-fueled world of automotive culture. These cinematic experiences fueled his determination to innovate within the tuning industry, leading him to pursue a degree in Industrial Design to refine his skills and broaden his horizons.  Following the footsteps of many influencers');
   const [driverInst, setDriverInst] = useState("https://www.instagram.com/jucaviapri/");
   const [driverYt, setDriverYt] = useState("https://www.youtube.com/@jucaviapri/featured");
   const [driverTik, setDriverTik] = useState("https://www.tiktok.com/@jucaviapri?lang=en");
@@ -49,10 +49,10 @@ const Dotw = () => {
         setDriverBio(data.driverBio);
         setDriverHero(data.heroImage);
         setDriverStory(data.story);
-        setDriverInst(data.socials[2].url);
-        setDriverYt(data.socials[3].url);
-        setDriverTik(data.socials[1].url);
-        setDriverWeb(data.socials[0].url);
+        setDriverInst('');
+        setDriverYt('');
+        setDriverTik('');
+        setDriverWeb('');
         setVideoInt(data.video.isShort);
         setVideoUrl(data.video.url);
       });
