@@ -4,6 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 const Dotw = () => {
   const [driverPhoto, setDriverPhoto] = useState("https://assets.mycast.io/actor_images/actor-keiichi-tsuchiya-283104_large.jpg?1633813197");
@@ -22,6 +23,20 @@ const Dotw = () => {
   const URL = "/api/driverOfTheWeek/";
 
 
+  async function fetchData() {
+    try {
+
+      const response = await axios.get('/api/driverOfTheWeek/');
+      console.log('Data received:', response.data);
+      return response.data; // Return the data if you need to use it elsewhere in your code
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error; // Rethrow the error to handle it elsewhere if needed
+    }
+  }
+  
+  // Call the function to fetch the data
+  fetchData();
 
 
   useEffect(() => {
@@ -43,6 +58,33 @@ const Dotw = () => {
       });
     };
     fetchData();
+  }, []);
+
+  async function fetchData2() {
+    try {
+
+      const response = await axios.get('/api/Video/');
+      console.log('Data received:', response.data);
+      return response.data; // Return the data if you need to use it elsewhere in your code
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error; // Rethrow the error to handle it elsewhere if needed
+    }
+  }
+  
+  // Call the function to fetch the data
+  fetchData2();
+
+
+  useEffect(() => {
+    const fetchData2 = async () => {
+      const result = await fetch(URL);
+      result.json().then((data) => {
+        console.log(data)
+    
+      });
+    };
+    fetchData2();
   }, []);
 
   return (
