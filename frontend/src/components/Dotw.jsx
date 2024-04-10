@@ -17,7 +17,7 @@ const Dotw = () => {
   const [driverTik, setDriverTik] = useState("https://www.tiktok.com/discover/Keiichi-Tsuchiya?lang=en");
   const [driverWeb, setDriverWeb] = useState("https://www.k1planning.com/");
   const [videoInt, setVideoInt] = useState(true);
-  const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/DcYwisP1x00?si=TPoS8YN-BMcoKuQ7");
+  const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/lE6gmkkH2Us?si=X6dwrIYRLoHd6zSo");
 
 
   const URL = "/api/driverOfTheWeek/";
