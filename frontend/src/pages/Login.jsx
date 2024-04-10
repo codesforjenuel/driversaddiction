@@ -12,10 +12,10 @@ const Login = () => {
   const handleFormSubmit = async (event, action) => {
     event.preventDefault();
 
-    let url = '';
+    ;
 
     if (action === 'login') {
-      url = '/api/users/login/';
+      let url = '/api/users/login/'
       try {
         const dataToSubmit = {
           name: postName,
