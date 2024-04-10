@@ -23,6 +23,22 @@ const Dotw = () => {
   const URL = "/api/driverOfTheWeek/";
 
 
+  async function fetchAllData() {
+    try {
+
+      const response = await axios.get('/api/driverOfTheWeek/all');
+      console.log('Data received:', response.data);
+      return response.data; // Return the data if you need to use it elsewhere in your code
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error; // Rethrow the error to handle it elsewhere if needed
+    }
+  }
+  
+  // Call the function to fetch the data
+  fetchAllData();
+
+
   async function fetchData() {
     try {
 

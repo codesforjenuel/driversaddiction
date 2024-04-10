@@ -13,6 +13,15 @@ router.get('/', async (req, res) => {
     res.status(400).json(err)
   }
 })
+router.get('/all', async (req, res) => {
+  try {
+    const driverOfTheWeekData = await DriverOfTheWeek.findAll(req.params.id)
+    res.status(200).json(driverOfTheWeekData)
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err)
+  }
+})
 
 // GET DriverOfTheWeek by ID
 router.get('/:id', async (req, res) => {
