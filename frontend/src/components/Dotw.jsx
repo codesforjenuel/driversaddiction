@@ -21,13 +21,11 @@ const Dotw = () => {
 
 
   const URL = "/api/driverOfTheWeek/";
-
-
   async function fetchAllData() {
     try {
 
       const response = await axios.get('/api/driverOfTheWeek/all');
-      console.log('Data received:', response.data);
+      console.log(' All Data received:', response.data);
       return response.data; // Return the data if you need to use it elsewhere in your code
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -65,10 +63,10 @@ const Dotw = () => {
         setDriverBio(data.driverBio);
         setDriverHero(data.heroImage);
         setDriverStory(data.story);
-        setDriverInst('');
-        setDriverYt('');
-        setDriverTik('');
-        setDriverWeb('');
+        setDriverInst(data.socials[2].url);
+        setDriverYt(data.socials[3].url);
+        setDriverTik(data.socials[1].url);
+        setDriverWeb(data.socials[0].url);
         setVideoInt(data.video.isShort);
         setVideoUrl(data.video.url);
       });
