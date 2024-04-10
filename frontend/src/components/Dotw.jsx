@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 
 const Dotw = () => {
-  const [driverPhoto, setDriverPhoto] = useState("https://assets.mycast.io/actor_images/actor-keiichi-tsuchiya-283104_large.jpg?1633813197");
-  const [driversName, setDriverName] = useState("keiichi tsuchiya");
-  const [driverBio, setDriverBio] = useState("Keiichi Tsuchiya is a Japanese professional race car driver. He is known as the Drift King for his nontraditional use of drifting in non-drifting racing events and his role in popularizing drifting as a motorsport.");
-  const [driverHero, setDriverHero] = useState("https://www.gtplanet.net/forum/media/keiichi-tsuchiyas-ae86-trueno.576/full");
-  const [driverStory, setDriverStory] = useState("The sport of drifting is surrounded by a man, who started at humble beginnings and made his way as a rebellious teenager who honed his driving skills on Touge (Japanese mountain roads) and reached the top podium as a world-class racing driver. The man who was known for his flamboyant driving style and for changing the demographics of motorsport racing by turning his wheels in another direction. Heres the story of Dorikin (Drift King) also known by his real name Keiichi Tsuchiya.");
+  const [driverPhoto, setDriverPhoto] = useState("");
+  const [driversName, setDriverName] = useState("");
+  const [driverBio, setDriverBio] = useState("");
+  const [driverHero, setDriverHero] = useState("");
+  const [driverStory, setDriverStory] = useState("");
   const [driverInst, setDriverInst] = useState("https://www.instagram.com/jucaviapri/");
   const [driverYt, setDriverYt] = useState("https://www.youtube.com/@jucaviapri/featured");
   const [driverTik, setDriverTik] = useState("https://www.tiktok.com/@jucaviapri?lang=en");
@@ -38,6 +38,30 @@ const Dotw = () => {
   // Call the function to fetch the data
   fetchData();
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(URL);
+      result.json().then((data) => {
+        console.log(data)
+        setDriverPhoto(data.profileImage);
+        setDriverName(data.driversName);
+        setDriverBio(data.driverBio);
+        setDriverHero(data.heroImage);
+        setDriverStory(data.story);
+        setDriverInst(data.socials[2].url);
+        setDriverYt(data.socials[3].url);
+        setDriverTik(data.socials[1].url);
+        setDriverWeb(data.socials[0].url);
+        setVideoInt(data.video.isShort);
+        setVideoUrl(data.video.url);
+      });
+    };
+    fetchData();
+  }, []);
+
+ 
+
   return (
     <div className=" w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
       <div
@@ -45,7 +69,7 @@ const Dotw = () => {
   style={{backgroundImage: `url(${driverHero})`}}
 ></div>
       <h2 className="text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
-        DRIVER OF THE WEEK
+        DRIVER OF THE MONTH
       </h2>
       <div className=" w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-darkgray">
         <div
@@ -63,6 +87,9 @@ const Dotw = () => {
         <h1 className="text-2xl m-8 font-normal">The Story</h1>
         <p className=" mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           {driverStory}
+        </p>
+        <p className=" mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
+          Driver's Social Media
         </p>
         <div className=" w-full flex flex-row justify-center">
           <Link to={driverInst} target={driverInst}>
