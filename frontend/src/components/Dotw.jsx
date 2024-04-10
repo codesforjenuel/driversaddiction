@@ -12,10 +12,10 @@ const Dotw = () => {
   const [driverBio, setDriverBio] = useState("Keiichi Tsuchiya is a Japanese professional race car driver. He is known as the Drift King for his nontraditional use of drifting in non-drifting racing events and his role in popularizing drifting as a motorsport.");
   const [driverHero, setDriverHero] = useState("https://www.gtplanet.net/forum/media/keiichi-tsuchiyas-ae86-trueno.576/full");
   const [driverStory, setDriverStory] = useState("The sport of drifting is surrounded by a man, who started at humble beginnings and made his way as a rebellious teenager who honed his driving skills on Touge (Japanese mountain roads) and reached the top podium as a world-class racing driver. The man who was known for his flamboyant driving style and for changing the demographics of motorsport racing by turning his wheels in another direction. Heres the story of Dorikin (Drift King) also known by his real name Keiichi Tsuchiya.");
-  const [driverInst, setDriverInst] = useState("https://www.instagram.com/keiichi_tsuchiya_/");
-  const [driverYt, setDriverYt] = useState("https://www.youtube.com/@CARPRIMEENGLISHCHANNEL");
-  const [driverTik, setDriverTik] = useState("https://www.tiktok.com/discover/Keiichi-Tsuchiya?lang=en");
-  const [driverWeb, setDriverWeb] = useState("https://www.k1planning.com/");
+  const [driverInst, setDriverInst] = useState("https://www.instagram.com/jucaviapri/");
+  const [driverYt, setDriverYt] = useState("https://www.youtube.com/@jucaviapri/featured");
+  const [driverTik, setDriverTik] = useState("https://www.tiktok.com/@jucaviapri?lang=en");
+  const [driverWeb, setDriverWeb] = useState("https://nomadx.foundation/storyteller-database/juca");
   const [videoInt, setVideoInt] = useState(true);
   const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/lE6gmkkH2Us?si=X6dwrIYRLoHd6zSo");
 
@@ -37,55 +37,6 @@ const Dotw = () => {
   
   // Call the function to fetch the data
   fetchData();
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(URL);
-      result.json().then((data) => {
-        console.log(data)
-        setDriverPhoto(data.profileImage);
-        setDriverName(data.driversName);
-        setDriverBio(data.driverBio);
-        setDriverHero(data.heroImage);
-        setDriverStory(data.story);
-        setDriverInst(data.socials[2].url);
-        setDriverYt(data.socials[3].url);
-        setDriverTik(data.socials[1].url);
-        setDriverWeb(data.socials[0].url);
-        setVideoInt(data.video.isShort);
-        setVideoUrl(data.video.url);
-      });
-    };
-    fetchData();
-  }, []);
-
-  async function fetchData2() {
-    try {
-
-      const response = await axios.get('/api/Video/');
-      console.log('Data received:', response.data);
-      return response.data; // Return the data if you need to use it elsewhere in your code
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      throw error; // Rethrow the error to handle it elsewhere if needed
-    }
-  }
-  
-  // Call the function to fetch the data
-  fetchData2();
-
-
-  useEffect(() => {
-    const fetchData2 = async () => {
-      const result = await fetch(URL);
-      result.json().then((data) => {
-        console.log(data)
-    
-      });
-    };
-    fetchData2();
-  }, []);
 
   return (
     <div className=" w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
