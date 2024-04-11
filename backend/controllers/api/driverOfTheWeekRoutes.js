@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 })
 router.get('/all', async (req, res) => {
   try {
-    const driverOfTheWeekData = await DriverOfTheWeek.findAll()
+    const driverOfTheWeekData = await DriverOfTheWeek.find()
     res.status(200).json(driverOfTheWeekData)
   } catch (err) {
     console.log(err)
