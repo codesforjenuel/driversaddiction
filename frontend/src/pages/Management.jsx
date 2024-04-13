@@ -1,7 +1,6 @@
 import {React, useState} from  'react'
 import Nav from '../components/Nav'
 import Edit from '../components/Edit'
-// import Blogform from '../components/Blogform'
 import Trendingform from '../components/Trendingform'
 import Videosform from '../components/Videosform'
 import { FaUser } from 'react-icons/fa'
@@ -16,10 +15,10 @@ const[page, setPage] = useState("edit")
 const handlePageChange= (selectedPage) => {
 setPage(selectedPage)
 }
-if (!auth.loggedIn()) {
-window.location.assign("/login")
-return 
-}
+// if (!auth.loggedIn()) {
+// window.location.assign("/login")
+// return 
+// }
 
   return (
     <div className='m-0 h-full w-full flex flex-col items-center  bg-gradient-to-br from-white to-stone-300'>
