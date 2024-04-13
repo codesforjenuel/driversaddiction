@@ -10,19 +10,9 @@ const Blogform = () => {
   const [story, setStoryInfo] = useState("");
   const [apiInfo, setApiInfo] = useState("");
  
-  const URL = "/api/driverOfTheWeek/6613aa132c2c7636ca911560";
-  const URL2 = "/api/driverOfTheWeek";
+  const UrlUpdate = "/api/driverOfTheWeek/6613aa132c2c7636ca911560";
+  const UrlPost = "/api/driverOfTheWeek";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(URL);
-      result.json().then((data) => {
-        console.log(data);
-        setApiInfo(JSON.stringify(data));
-      });
-    };
-    fetchData();
-  }, []);
 
   const handleFormSubmit = async (event, action) => {
     event.preventDefault();
@@ -36,7 +26,7 @@ const Blogform = () => {
           story,
         };
 
-        const response = await fetch(URL, {
+        const response = await fetch(UrlUpdate, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
@@ -65,7 +55,7 @@ const Blogform = () => {
           story,
         };
 
-        const response = await fetch(URL2, {
+        const response = await fetch(UrlPost, {
           method: "POST",
           headers: {
             "Content-Type": "application/json; charset=UTF-8",
@@ -149,7 +139,6 @@ const Blogform = () => {
       />
       </div>
 </div>
-      <p className="w-20 flex flex-col items-center">{apiInfo}</p>
       {/* div for buttons */}
 <div className="ml-12">
       <button
