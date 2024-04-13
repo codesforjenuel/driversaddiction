@@ -16,10 +16,10 @@ const[page, setPage] = useState("edit")
 const handlePageChange= (selectedPage) => {
 setPage(selectedPage)
 }
-// if (!auth.loggedIn()) {
-// window.location.assign("/login")
-// return 
-// }
+if (!auth.loggedIn()) {
+window.location.assign("/login")
+return 
+}
 
   return (
     <div className='m-0 h-full w-full flex flex-col items-center  bg-gradient-to-br from-white to-stone-300'>
