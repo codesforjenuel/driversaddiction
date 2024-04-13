@@ -21,7 +21,7 @@ const handleEditPage = (selectedPage) => {
     </ul>
       </div>
       {editPage === "dotm" && 
-      <div>
+      <div className='flex flex-row'>
     <Blogform />
 <Dotminfo/>
 </div>

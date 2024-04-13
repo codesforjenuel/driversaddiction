@@ -19,10 +19,10 @@ function Dotminfo() {
     fetchAllData()
     
   return (
-    <div>
-    <div>Welcome to Driver of The Month Edit</div>
-    <p>{driverInfo.heroImage}</p>
-    <p>{driverInfo.profileImage}</p>
+    <div className=' text-center m-5'>
+    <h6>Welcome to Driver of The Month Edit</h6>
+    <img src={driverInfo.heroImage} alt='banner of the driver' className=' w-40 h-20' />
+    <img src={driverInfo.profileImage} alt='profile image of the driver' className='w-36 h-36'/>
     <p>{driverInfo.driversName}</p>
     <p>{driverInfo.driverBio}</p>
     <p>{driverInfo.story}</p>
