@@ -28,7 +28,6 @@ function Dotminfo() {
     <img src={driverInfo.profileImage} alt='profile image of the driver' className='w-36 h-36 m-5'/>
     <p className='m-5'>{driverInfo.driversName}</p>
     <p className='m-5'>{driverInfo.driverBio}</p>
-    <p className='m-5'>{driverInfo.story} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem commodi corrupti reiciendis inventore quas animi deleniti, reprehenderit illum non voluptatibus incidunt doloribus pariatur, eum ducimus laborum quidem magni possimus atque!</p>
     <textarea
                 rows="5" 
                 cols="50"
