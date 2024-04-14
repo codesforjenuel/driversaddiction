@@ -26,7 +26,7 @@ const Dotw = () => {
     try {
 
       const response = await axios.get('/api/driverOfTheWeek/');
-      console.log('Data received:', response.data);
+      console.log('Data received');
       return response.data; // Return the data if you need to use it elsewhere in your code
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -42,7 +42,6 @@ const Dotw = () => {
     const fetchData = async () => {
       const result = await fetch(URL);
       result.json().then((data) => {
-        console.log(data)
         setDriverPhoto(data.profileImage);
         setDriverName(data.driversName);
         setDriverBio(data.driverBio);
