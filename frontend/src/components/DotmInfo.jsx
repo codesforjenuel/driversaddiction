@@ -19,10 +19,10 @@ function Dotminfo() {
       fetchDriver();
     }, []);
        const handleTextChange = (event) => {
-      setText(event.target.value); // Update the text state with the new value
+      setText(event.target.value);
   };
   return (
-    <div className=' flex flex-col items-center justify-center'>
+    <div className=' w-72 flex flex-col items-center justify-center'>
     <h6>Welcome to Driver of The Month Edit</h6>
     <img src={driverInfo.heroImage} alt='banner of the driver' className=' w-40 h-20 m-5' />
     <img src={driverInfo.profileImage} alt='profile image of the driver' className='w-36 h-36 m-5'/>
@@ -30,7 +30,7 @@ function Dotminfo() {
     <p className='m-5'>{driverInfo.driverBio}</p>
     <textarea
                 rows="5" 
-                cols="50"
+                cols="30"
                 placeholder="Enter your text here" // Placeholder text
                 value={driverInfo.story} 
                 onChange={handleTextChange} // Call handleTextChange on textarea value change
