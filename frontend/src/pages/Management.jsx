@@ -7,7 +7,7 @@ import { FaUser } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 import { BiBarChart } from 'react-icons/bi'
 import { FaBullhorn } from 'react-icons/fa'
-// import auth from '../utils/auth'
+import auth from '../utils/auth'
 
 const Management = () => {
 const[page, setPage] = useState("edit")
@@ -15,10 +15,10 @@ const[page, setPage] = useState("edit")
 const handlePageChange= (selectedPage) => {
 setPage(selectedPage)
 }
-// if (!auth.loggedIn()) {
-// window.location.assign("/login")
-// return 
-// }
+if (!auth.loggedIn()) {
+window.location.assign("/login")
+return 
+}
 
   return (
     <div className='m-0 h-full w-full flex flex-col items-center  bg-gradient-to-br from-white to-stone-300'>

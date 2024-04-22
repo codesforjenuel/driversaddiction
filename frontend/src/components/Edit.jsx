@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Blogform from './Blogform';
 import Dotminfo from './DotmInfo';
+import Videosform from './Videosform';
 
 function Edit() {
 const liStyle ='w-52  hover:transition duration-300 ease-in-out hover:text-black text-center hover:border-b-4 border-stone-300 hover:bg-stone-300'
@@ -24,6 +25,7 @@ const handleEditPage = (selectedPage) => {
       <div className='flex flex-row flex-wrap'>
     <Blogform />
 <Dotminfo/>
+<Videosform/>
 </div>
     }
     </div>
