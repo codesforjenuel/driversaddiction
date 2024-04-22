@@ -6,7 +6,7 @@ const Videosform = () => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
 
-  const urlVideo = "/api/video";
+  const urlVideo = "/api/videos";
 
   const handleFormSubmit = async (event, action) => {
     event.preventDefault();
