@@ -61,15 +61,15 @@ const Dotw = () => {
  
 
   return (
-    <div className="ibm-plex-mono-light w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
+    <div className="ibm-plex-mono-light w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-[#BDBDBD]">
       <div
   className={`w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center lg:bg-center`}
   style={{backgroundImage: `url(${driverHero})`}}
 ></div>
-      <h2 className="text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
+      <h2 className="ibm-plex-mono-light  text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
         DRIVER OF THE MONTH
       </h2>
-      <div className="ibm-plex-mono-light w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-darkgray">
+      <div className=" w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-[#BDBDBD] bg-[#DFDFDF] drop-shadow-xl rounded-xl">
         <div
           className={` shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center `}
           style={{backgroundImage: `url(${driverPhoto})`}}
@@ -81,7 +81,7 @@ const Dotw = () => {
           </p>
         </div>
       </div>
-      <p className=" w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-white">
+      <p className=" w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-[#BDBDBD]">
         <h1 className="text-2xl m-8 font-normal">The Story</h1>
         <p className=" mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           {driverStory}

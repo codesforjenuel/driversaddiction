@@ -22,7 +22,7 @@ function Dotminfo() {
       setText(event.target.value);
   };
   return (
-    <div className='ibm-plex-mono-light w-72 flex flex-col items-center justify-center'>
+    <div className=' w-72 flex flex-col items-center justify-center'>
     <h6>Welcome to Driver of The Month Edit</h6>
     <img src={driverInfo.heroImage} alt='banner of the driver' className=' w-40 h-20 m-5' />
     <img src={driverInfo.profileImage} alt='profile image of the driver' className='w-36 h-36 m-5'/>

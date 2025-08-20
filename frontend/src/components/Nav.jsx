@@ -11,7 +11,7 @@ export default function Nav() {
   const iconSize = "w-5 h-5  md:w-6 md:h-6 lg:w-7 lg:h-7";
     return(
        
-         <div className="ibm-plex-mono-medium  w-full flex flex-wrap py-5 flex-row justify-between items-end bg-white drop-shadow-xl ">
+         <div className="ibm-plex-mono-medium  w-full flex flex-wrap py-5 flex-row justify-between items-end bg-white drop-shadow-xl bg-[#DFDFDF]">
               <img
                 src={daLogo}
                 alt="drivers addiction logo"
