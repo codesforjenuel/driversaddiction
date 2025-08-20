@@ -71,7 +71,7 @@ const Dotw = () => {
         variants={fadeInLeft}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
       >
         <div
           className="shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center"
@@ -89,7 +89,7 @@ const Dotw = () => {
         <motion.p variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }} className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
+        viewport={{ once: false, amount: 0.3 }} className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           {driverStory}
         </motion.p>
         <p className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
