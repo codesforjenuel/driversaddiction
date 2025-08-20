@@ -1,6 +1,5 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Node.js app to Azure Web App - driversaddiction
 
 on:
@@ -14,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
@@ -28,17 +28,19 @@ jobs:
           npm install
           npm run build
 
-      # Optional: install backend if you need it
+      # Optional: install backend if needed
       - name: Install backend dependencies
         run: |
           cd backend
           npm install
 
-      - name: Zip artifact for deployment
+      # Zip frontend build for deployment
+      - name: Zip frontend build for deployment
         run: |
           cd frontend
-          zip -r ../release.zip .  # zip the frontend build for deployment
+          zip -r ../release.zip .
 
+      # Upload artifact
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -61,12 +63,11 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      - name: 'Deploy to Azure Web App'
-  id: deploy-to-webapp
-  uses: azure/webapps-deploy@v4
-  with:
-    app-name: 'driversaddiction'
-    slot-name: 'Production'
-    publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2D67F085D4BC4EA0B82B5A5CB8F16BE9 }}
-    package: .
-
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v4
+        with:
+          app-name: 'driversaddiction'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2D67F085D4BC4EA0B82B5A5CB8F16BE9 }}
+          package: .
