@@ -61,7 +61,7 @@ const Dotw = () => {
  
 
   return (
-    <div className=" w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
+    <div className="ibm-plex-mono-light w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-white">
       <div
   className={`w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center lg:bg-center`}
   style={{backgroundImage: `url(${driverHero})`}}
@@ -69,7 +69,7 @@ const Dotw = () => {
       <h2 className="text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
         DRIVER OF THE MONTH
       </h2>
-      <div className=" w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-darkgray">
+      <div className="ibm-plex-mono-light w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-darkgray">
         <div
           className={` shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center `}
           style={{backgroundImage: `url(${driverPhoto})`}}

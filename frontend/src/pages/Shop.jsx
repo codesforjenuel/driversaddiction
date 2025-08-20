@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '../components/Nav'
+import MobileNav from '../components/Nav'
 
 const Shop = () => {
   return (
