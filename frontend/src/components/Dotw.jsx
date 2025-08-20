@@ -42,11 +42,16 @@ const Dotw = () => {
     fetchData();
   }, []);
 
-  // Framer Motion variants for fade-in from left
+ 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0, transition: { duration: 1 } }
   };
+
+  const fadeInUp = {
+  hidden: { opacity: 0, y: 50 }, 
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } } 
+};
 
   return (
     <div className="ibm-plex-mono-light w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-[#BDBDBD]">
@@ -59,7 +64,7 @@ const Dotw = () => {
         DRIVER OF THE MONTH
       </h2>
 
-      {/* Motion wrapper for fade-in effect */}
+      
       <motion.div
         id="driverBox"
         className="w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-[#BDBDBD] bg-[#DFDFDF] drop-shadow-xl rounded-xl"
@@ -78,12 +83,15 @@ const Dotw = () => {
         </div>
       </motion.div>
 
-      {/* Rest of your component remains unchanged */}
+      
       <p className="w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-[#BDBDBD]">
         <h1 className="text-2xl m-8 font-normal">The Story</h1>
-        <p className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
+        <motion.p variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }} className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           {driverStory}
-        </p>
+        </motion.p>
         <p className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           Driver's Social Media
         </p>
