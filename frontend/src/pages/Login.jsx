@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "../components/Nav";
+import MobileNav from "../components/MobileNav";
 // import Createruserform from "../components/Createuserform";
 import Footer from "../components/Footer";
 import auth from "../utils/auth"
@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-white">
-    <Nav />
+    <MobileNav />
     <div className="flex flex-col items-center justify-center w-full py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-zinc-500 to-white">
       <form className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
         <div>
