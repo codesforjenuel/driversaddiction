@@ -34,13 +34,11 @@ jobs:
           cd backend
           npm install
 
-      # Ensure zip is installed and zip frontend build contents
+      # Zip the frontend build folder correctly
       - name: Zip frontend build for deployment
         run: |
-          sudo apt-get update
-          sudo apt-get install -y zip
-          cd frontend/build
-          zip -r ../../release.zip .
+          cd frontend
+          zip -r ../release.zip build
 
       # Upload artifact for deployment job
       - name: Upload artifact
