@@ -28,17 +28,17 @@ jobs:
           npm install
           npm run build
 
-      # Optional: install backend if needed
+      # Optional: install backend dependencies if needed
       - name: Install backend dependencies
         run: |
           cd backend
           npm install
 
-      # Zip frontend build for deployment
+      # Zip frontend build folder for deployment
       - name: Zip frontend build for deployment
         run: |
-          cd frontend
-          zip -r ../release.zip .
+          cd frontend/build
+          zip -r ../../release.zip .
 
       # Upload artifact
       - name: Upload artifact for deployment job
@@ -65,7 +65,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         with:
           app-name: 'driversaddiction'
           slot-name: 'Production'
