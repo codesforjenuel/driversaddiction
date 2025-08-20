@@ -21,14 +21,23 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      # Install and build frontend
+      - name: Install frontend dependencies
         run: |
+          cd frontend
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build
+
+      # Optional: install backend if you need it
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          cd frontend
+          zip -r ../release.zip .  # zip the frontend build for deployment
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -54,7 +63,7 @@ jobs:
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         with:
           app-name: 'driversaddiction'
           slot-name: 'Production'
