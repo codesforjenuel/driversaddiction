@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='w-full p-10 text-center flex flex-col items-center bg-white'>
+    <div className='w-full p-10 text-center flex flex-col items-center bg-[#DFDFDF]'>
         <h3>© 2023 Drivers Addiction. All rights reserved.</h3>
 <div className=' w-full flex flex-row justify-center'>
         <Link to="https://www.instagram.com/drivers.addiction/" target='https://www.instagram.com/drivers.addiction/'><FaInstagram size={30} color="#bc2a8d" className='m-5 drop-shadow-[0_2px_1px_rgba(0,0,0,0.25)] hover:drop-shadow-[0_4px_1px_rgba(0,0,0,0.25)] transition duration-5s' /></Link>
