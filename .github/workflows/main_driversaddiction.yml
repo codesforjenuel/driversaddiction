@@ -37,7 +37,7 @@ jobs:
           npm install
           npm run build
 
-      # 5️⃣ Copy frontend build (dist) into backend for deployment
+      # 5️⃣ Copy frontend dist into backend for deployment
       - name: Copy frontend dist into backend
         run: |
           cp -R frontend/dist backend/dist
@@ -48,7 +48,7 @@ jobs:
           cd backend
           zip -r ../release.zip .
 
-      # 7️⃣ Upload artifact for deployment job
+      # 7️⃣ Upload artifact for deployment
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -67,7 +67,7 @@ jobs:
 
       # 🔟 Deploy to Azure Web App
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         with:
           app-name: 'driversaddiction'
           slot-name: 'Production'
