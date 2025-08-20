@@ -1,10 +1,8 @@
-//dotw stands for Driver of the Week
 import React, { useState, useEffect } from "react";
-import { FaInstagram } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaGlobe } from "react-icons/fa";
+import { motion } from 'framer-motion';
+import { FaInstagram, FaYoutube, FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
 
 const Dotw = () => {
   const [driverPhoto, setDriverPhoto] = useState("");
@@ -19,29 +17,13 @@ const Dotw = () => {
   const [videoInt, setVideoInt] = useState(true);
   const [videoUrl, setVideoUrl] = useState("https://www.youtube.com/embed/lE6gmkkH2Us?si=X6dwrIYRLoHd6zSo");
 
-
   const URL = "/api/driverOfTheWeek/";
-
-  async function fetchData() {
-    try {
-
-      const response = await axios.get('/api/driverOfTheWeek/');
-      console.log('Data received');
-      return response.data; // Return the data if you need to use it elsewhere in your code
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      throw error; // Rethrow the error to handle it elsewhere if needed
-    }
-  }
-  
-  // Call the function to fetch the data
-  fetchData();
-
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch(URL);
-      result.json().then((data) => {
+      try {
+        const result = await fetch(URL);
+        const data = await result.json();
         setDriverPhoto(data.profileImage);
         setDriverName(data.driversName);
         setDriverBio(data.driverBio);
@@ -53,43 +35,59 @@ const Dotw = () => {
         setDriverWeb(data.socials[0].url);
         setVideoInt(data.video.isShort);
         setVideoUrl(data.video.url);
-      });
+      } catch (err) {
+        console.error(err);
+      }
     };
     fetchData();
   }, []);
 
- 
+  // Framer Motion variants for fade-in from left
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } }
+  };
 
   return (
     <div className="ibm-plex-mono-light w-full max-w-screen-lg h-full flex flex-col items-center justify-around bg-[#BDBDBD]">
       <div
-  className={`w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center lg:bg-center`}
-  style={{backgroundImage: `url(${driverHero})`}}
-></div>
-      <h2 className="ibm-plex-mono-light  text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
+        className="w-full h-40 md:h-96 lg:h-96 max-w-screen-lg bg-no-repeat bg-cover bg-center lg:bg-center"
+        style={{backgroundImage: `url(${driverHero})`}}
+      ></div>
+
+      <h2 className="ibm-plex-mono-light text-xl font-light md:text-5xl drop-shadow-[0_7px_4px_rgba(0,0,0,0.25)] text-left m-10">
         DRIVER OF THE MONTH
       </h2>
-      <div className=" w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-[#BDBDBD] bg-[#DFDFDF] drop-shadow-xl rounded-xl">
+
+      {/* Motion wrapper for fade-in effect */}
+      <motion.div
+        id="driverBox"
+        className="w-3/4 flex flex-col justify-around md:flex-row items-center border-solid border-y-2 border-[#BDBDBD] bg-[#DFDFDF] drop-shadow-xl rounded-xl"
+        variants={fadeInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div
-          className={` shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center `}
+          className="shadow-3xl w-56 h-56 m-8 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-md bg-no-repeat bg-cover bg-center"
           style={{backgroundImage: `url(${driverPhoto})`}}
         ></div>
         <div className="flex flex-col m-8 h-full">
-          <h2 className="text-center font-normal text-2xl ">{driversName}</h2>
-          <p className="  md:text-xl  md:w-80 lg:w-96 md:leading-10">
-            {driverBio}
-          </p>
+          <h2 className="text-center font-normal text-2xl">{driversName}</h2>
+          <p className="md:text-xl md:w-80 lg:w-96 md:leading-10">{driverBio}</p>
         </div>
-      </div>
-      <p className=" w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-[#BDBDBD]">
+      </motion.div>
+
+      {/* Rest of your component remains unchanged */}
+      <p className="w-full max-w-screen-lg h-full flex flex-col items-center shadow-md bg-[#BDBDBD]">
         <h1 className="text-2xl m-8 font-normal">The Story</h1>
-        <p className=" mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
+        <p className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           {driverStory}
         </p>
-        <p className=" mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
+        <p className="mx-20 text-left font-sans md:text-xl lg:mx-44 md:leading-10">
           Driver's Social Media
         </p>
-        <div className=" w-full flex flex-row justify-center">
+        <div className="w-md flex flex-row justify-center rounded-xl bg-[#DFDFDF]">
           <Link to={driverInst} target={driverInst}>
             <FaInstagram
               size={40}
@@ -121,14 +119,15 @@ const Dotw = () => {
             />
           </Link>
         </div>
-        {videoInt === true && (
+
+        {videoInt && (
           <iframe
             className="w-full sm:h-96 md:h-500 md:w-3/4 h-60 m-20"
             src={videoUrl}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowFullScreen={true}
+            allowFullScreen={true}
           ></iframe>
         )}
       </p>
