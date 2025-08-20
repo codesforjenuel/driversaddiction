@@ -7,3 +7,9 @@
   font-weight: 500;
   font-style: normal;
 }
+
+.ibm-plex-mono-light {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
