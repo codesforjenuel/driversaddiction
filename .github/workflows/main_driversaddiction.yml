@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy full-stack Node + React app to Azure Web App
+name: Build and deploy full-stack Vite + Node app to Azure Web App
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -30,25 +30,25 @@ jobs:
           cd backend
           npm install
 
-      # 4️⃣ Install and build frontend
+      # 4️⃣ Install and build frontend (Vite)
       - name: Install and build frontend
         run: |
           cd frontend
           npm install
           npm run build
 
-      # 5️⃣ Move frontend build into backend for deployment
-      - name: Copy frontend build into backend
+      # 5️⃣ Copy frontend build (dist) into backend for deployment
+      - name: Copy frontend dist into backend
         run: |
-          cp -R frontend/build backend/build
+          cp -R frontend/dist backend/dist
 
       # 6️⃣ Zip backend folder for deployment
-      - name: Zip backend (with frontend build)
+      - name: Zip backend (with frontend dist)
         run: |
           cd backend
           zip -r ../release.zip .
 
-      # 7️⃣ Upload artifact
+      # 7️⃣ Upload artifact for deployment job
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -67,7 +67,7 @@ jobs:
 
       # 🔟 Deploy to Azure Web App
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         with:
           app-name: 'driversaddiction'
           slot-name: 'Production'
